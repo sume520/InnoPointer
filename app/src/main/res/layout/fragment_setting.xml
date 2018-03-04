@@ -1,0 +1,65 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.sun.innotext.FragmentSetting"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:background="@color/colorWhite">
+        <ImageView
+            android:id="@+id/user_image"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:scaleType="centerInside"
+            android:paddingLeft="6dp"
+            android:src="@drawable/ic_person_black_64dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_toRightOf="@+id/user_image"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="UserName"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:background="@color/colorWhite"
+                style="?android:attr/borderlessButtonStyle"
+                android:textAlignment="textStart"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="check your profile"/>
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/chevron_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/ic_chevron_right_black_24dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listview"
+        android:focusable="true"/>
+
+</LinearLayout>

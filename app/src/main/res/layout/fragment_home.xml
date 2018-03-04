@@ -1,0 +1,113 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.sun.innotext.FragmentHome"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/image_bike_button"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:src="@drawable/timg"
+        android:scaleType="centerCrop" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="1dp">
+        <TableRow
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/remote_switch"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_press"
+                android:padding="20dp"
+                android:text="远程开关"
+                android:textAlignment="center"
+                android:textSize="30dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/lock"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:layout_weight=".5"
+                android:background="@drawable/button_press"
+                android:text="全方位锁车"
+                android:textAlignment="center"
+                android:textSize="30dp" />
+
+            <Button
+                android:id="@+id/light"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_margin="1dp"
+                android:layout_marginLeft="2dp"
+                android:layout_weight=".5"
+                android:background="@drawable/button_press"
+                android:text="远程开关灯"
+                android:textAlignment="center"
+                android:textSize="30dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/warning"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:layout_weight=".3"
+                android:background="@drawable/button_press"
+                android:text="警告"
+                android:textAlignment="center"
+                android:textSize="30dp" />
+
+            <Button
+                android:id="@+id/resist"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_margin="1dp"
+                android:layout_weight=".4"
+                android:background="@drawable/button_press"
+                android:text="自动抗拒"
+                android:textAlignment="center"
+                android:textSize="30dp" />
+
+            <Button
+                android:id="@+id/whistle"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:layout_weight=".3"
+                android:background="@drawable/button_press"
+                android:text="鸣笛"
+                android:textAlignment="center"
+                android:textSize="30dp" />
+
+        </TableRow>
+
+    </TableLayout>
+
+
+</LinearLayout>
