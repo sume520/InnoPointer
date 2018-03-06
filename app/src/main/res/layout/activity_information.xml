@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <view
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:text="姓名" />
+            <TextView
+                android:id="@+id/input_message"
+                android:layout_toRightOf="@+id/button1"
+                android:layout_alignBottom="@+id/button1"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+            />
+    </RelativeLayout>
+
+    <view
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:text="性别" />
+        <TextView
+            android:id="@+id/input_message1"
+            android:layout_toRightOf="@+id/button2"
+            android:layout_alignBottom="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            />
+    </RelativeLayout>
+
+    <view
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:text="出生日期" />
+        <TextView
+            android:id="@+id/input_message3"
+            android:layout_toRightOf="@+id/button3"
+            android:layout_alignBottom="@+id/button3"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            />
+    </RelativeLayout>
+
+    <view
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:text="身份证号" />
+        <TextView
+            android:id="@+id/input_message4"
+            android:layout_toRightOf="@+id/button4"
+            android:layout_alignBottom="@+id/button4"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            />
+    </RelativeLayout>
+
+    <view
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:text="电话号码" />
+        <TextView
+            android:id="@+id/input_message5"
+            android:layout_toRightOf="@+id/button5"
+            android:layout_alignBottom="@+id/button5"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            />
+    </RelativeLayout>
+
+    <view
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:text="电子邮件" />
+        <TextView
+            android:id="@+id/input_message6"
+            android:layout_toRightOf="@+id/button6"
+            android:layout_alignBottom="@+id/button6"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            />
+    </RelativeLayout>
+
+
+</LinearLayout>
