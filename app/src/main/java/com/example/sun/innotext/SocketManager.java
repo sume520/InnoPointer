@@ -1,7 +1,6 @@
 package com.example.sun.innotext;
 
 import android.content.Context;
-import android.telecom.Call;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -11,7 +10,6 @@ import java.io.IOException;
 import java.net.Socket;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -28,7 +26,8 @@ public class SocketManager {
     public DataInputStream in;
     private Context context;
     private ExecutorService executorService;
-    private Future<Boolean> future;
+    private Future<Object> future;
+
 
     private static SocketManager socketManager;
     private static String host;
@@ -49,14 +48,15 @@ public class SocketManager {
 
     public void connect(){
         executorService= Executors.newCachedThreadPool();
-        FutureTask<Boolean> futureTask=new FutureTask<Boolean>(new SocketConnect());
+        FutureTask futureTask=new FutureTask(new SocketConnect());
         //executorService.submit(futureTask);
         checkConnect(futureTask);
     }
 
     public void checkConnect(final FutureTask<Boolean> futureTask){
-        new Thread(new Runnable(){
-            public void run(){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
                 while(true){
                     if(socket==null||socket.isClosed()) {
                         Log.d("SocketManger","正在重连...");
@@ -68,37 +68,45 @@ public class SocketManager {
                         e.printStackTrace();
                     }
                 }
-
             }
         }).start();
+
     }
 
-    public boolean sendCommand(final String command){
+    public boolean sendCommand(final String command) {
         final String cmd=command;
-        final boolean[] judge = {false};
-        if(socket!=null) {
-            Thread thread = new Thread(new Runnable() {
-                @Override
-                public void run() {
+        FutureTask futureTask= new FutureTask<>(new Callable<Object>() {
+            public Boolean call(){
+                boolean judge=false;
+                if(socket!=null){
                     try {
                         out.writeUTF(command);
                         out.flush();
-                        judge[0] =true;
+                        judge=true;
                         Log.d("SocketManger", "发送指令" + cmd + "成功");
                     } catch (IOException e) {
                         e.printStackTrace();
-                        judge[0] =false;
+                        judge=false;
                         Log.d("SocketManger", "发送指令" + cmd + "失败");
                     }
+                }else {
+                    Log.d("SocketManager","服务器连接已断开");
+                    judge=false;
                 }
-            });
-            thread.start();
-        }else{
-            Log.d("SocketManager","服务器连接已断开");
-            judge[0]=false;
-            //Toast.makeText(context,"未连接服务器",Toast.LENGTH_SHORT).show();
+                return judge;
+            }
+        });
+        executorService.submit(futureTask);
+
+        boolean judge=false;
+        try {
+            judge=(boolean)futureTask.get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
         }
-        return judge[0];
+        return judge;
     }
 
     public void getData(){
@@ -131,7 +139,7 @@ public class SocketManager {
         }
     }
 
-    class SocketConnect implements Callable<Boolean>{
+    class SocketConnect implements Callable<Boolean> {
 
         @Override
         public Boolean call() throws Exception {

@@ -3,6 +3,7 @@ package com.example.sun.innotext;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,8 @@ public class FragmentHome extends Fragment implements View.OnClickListener {
     private Button whistle;
     private Button resist;
     private SocketManager socketManager;
+
+    private static final String TAG = "FragmentHome";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -89,9 +92,11 @@ public class FragmentHome extends Fragment implements View.OnClickListener {
         if(rs){
             Toast.makeText(activity,"发送指令"+cmd+"成功",Toast.LENGTH_SHORT)
                     .show();
+            Log.d(TAG, "showResult: rs=true");
         }else {
             Toast.makeText(activity,"发送指令"+cmd+"失败",Toast.LENGTH_SHORT)
                     .show();
+            Log.d(TAG, "showResult: rs=false");
         }
     }
 
