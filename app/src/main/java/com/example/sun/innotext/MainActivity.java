@@ -1,11 +1,11 @@
 package com.example.sun.innotext;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
@@ -60,15 +60,14 @@ public class MainActivity extends AppCompatActivity {
         SDKInitializer.initialize(getApplicationContext());
         setContentView(R.layout.activity_main);
 
-        fragmentManager=getFragmentManager();
+        fragmentManager=getSupportFragmentManager();
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         //初始化碎片信息
         initFragments();
 
         //连接服务器
-        socketManager=new SocketManager
-                ("120.78.159.172",8000,MainActivity.this);
+        socketManager=SocketManager.createInstance();
         socketManager.connect();
         socketManager.getData();
     }
@@ -98,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         fragments = new Fragment[]{fragmentHome,fragmentMap,fragmentSetting};
         //设置默认显示碎片
         lastShowFragment = 0;
-        getFragmentManager()
+        getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.fragment,fragmentHome)
                 .show(fragmentHome)

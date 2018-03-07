@@ -22,37 +22,32 @@ import java.util.concurrent.FutureTask;
  */
 
 public class SocketManager {
+
     private Socket socket;
-    private String host;
-    private int port;
     public DataOutputStream out;
     public DataInputStream in;
     private Context context;
     private ExecutorService executorService;
     private Future<Boolean> future;
 
-    public SocketManager(String host,int port,Context context){
-        this.host=host;
-        this.port=port;
-        this.context=context;
+    private static SocketManager socketManager;
+    private static String host;
+    private static int port;
+
+    public SocketManager(){
     }
 
+    public static SocketManager createInstance(){
+        if(socketManager==null){
+            host="120.78.159.172";
+            port=8000;
+            socketManager=new SocketManager();
+        }
+        return socketManager;
+    }
+
+
     public void connect(){
-       /* Thread thread=new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    socket=new Socket(host,port);
-                    out=new DataOutputStream(socket.getOutputStream());
-                    in=new DataInputStream(socket.getInputStream());
-                    Log.d("SocketManger","连接服务器成功");
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    Log.d("SocketManger","连接服务器失败");
-                }
-            }
-        });
-        thread.start();*/
         executorService= Executors.newCachedThreadPool();
         FutureTask<Boolean> futureTask=new FutureTask<Boolean>(new SocketConnect());
         //executorService.submit(futureTask);
@@ -78,8 +73,9 @@ public class SocketManager {
         }).start();
     }
 
-    public void sendCommand(final String command){
+    public boolean sendCommand(final String command){
         final String cmd=command;
+        final boolean[] judge = {false};
         if(socket!=null) {
             Thread thread = new Thread(new Runnable() {
                 @Override
@@ -87,9 +83,11 @@ public class SocketManager {
                     try {
                         out.writeUTF(command);
                         out.flush();
+                        judge[0] =true;
                         Log.d("SocketManger", "发送指令" + cmd + "成功");
                     } catch (IOException e) {
                         e.printStackTrace();
+                        judge[0] =false;
                         Log.d("SocketManger", "发送指令" + cmd + "失败");
                     }
                 }
@@ -97,8 +95,10 @@ public class SocketManager {
             thread.start();
         }else{
             Log.d("SocketManager","服务器连接已断开");
-            Toast.makeText(context,"未连接服务器",Toast.LENGTH_SHORT).show();
+            judge[0]=false;
+            //Toast.makeText(context,"未连接服务器",Toast.LENGTH_SHORT).show();
         }
+        return judge[0];
     }
 
     public void getData(){

@@ -1,8 +1,8 @@
 package com.example.sun.innotext;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +18,6 @@ public class FragmentHome extends Fragment implements View.OnClickListener {
     private Button warn;
     private Button whistle;
     private Button resist;
-    private Activity activity;
     private SocketManager socketManager;
 
     @Override
@@ -30,6 +29,7 @@ public class FragmentHome extends Fragment implements View.OnClickListener {
         return view;
     }
 
+    //初始化并注册按钮
     private void initButton(View view){
         rmSwitch=view.findViewById(R.id.remote_switch);
         rmSwitch.setOnClickListener(this);
@@ -47,44 +47,52 @@ public class FragmentHome extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+        socketManager=SocketManager.createInstance();
+        String cmd=null;
+        boolean rs=false;
         switch (v.getId()){
             case R.id.remote_switch:
-                socketManager.sendCommand("开启智能车锁");
-                //showCommand("开启智能车锁");
+                cmd="开启智能车锁";
+                rs=socketManager.sendCommand(cmd);
+                showResult(rs,cmd);
                 break;
             case R.id.lock:
-                socketManager.sendCommand("上锁");
-                //showCommand("上锁");
+                cmd="上锁";
+                rs=socketManager.sendCommand(cmd);
+                showResult(rs,cmd);
                 break;
             case R.id.light:
-                socketManager.sendCommand("打开车灯");
-                //showCommand("打开车灯");
+                cmd="开启车灯";
+                rs=socketManager.sendCommand(cmd);
+                showResult(rs,cmd);
                 break;
             case R.id.warning:
-                socketManager.sendCommand("开启警告");
-                //showCommand("开启警告");
+                cmd="开启警告";
+                rs=socketManager.sendCommand(cmd);
+                showResult(rs,cmd);
                 break;
             case R.id.resist:
-                socketManager.sendCommand("开启自动抗拒");
-                //showCommand("开启自动抗拒");
+                cmd="开启自动抗拒";
+                rs=socketManager.sendCommand(cmd);
+                showResult(rs,cmd);
                 break;
             case R.id.whistle:
-                socketManager.sendCommand("开启鸣笛");
-                //showCommand("开启鸣笛");
+                cmd="开启鸣笛";
+                rs=socketManager.sendCommand(cmd);
+                showResult(rs,cmd);
                 break;
         }
     }
 
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        this.activity=activity;
-        socketManager=((MainActivity)activity).getSocketManager();
+    private void showResult(boolean rs,String cmd){
+        MainActivity activity=(MainActivity)getActivity();
+        if(rs){
+            Toast.makeText(activity,"发送指令"+cmd+"成功",Toast.LENGTH_SHORT)
+                    .show();
+        }else {
+            Toast.makeText(activity,"发送指令"+cmd+"失败",Toast.LENGTH_SHORT)
+                    .show();
+        }
     }
 
-    private void showCommand(String cmd){
-        Socket socket=socketManager.getSocket();
-        if(socket.isConnected()&&socket!=null);
-          Toast.makeText(activity,cmd+"成功",Toast.LENGTH_SHORT).show();
-    }
 }
