@@ -1,25 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.sun.innotext.PersonActivity">
+    android:layout_height="match_parent">
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        >
+
+        <ImageView
+        android:id="@+id/image_view"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_person_black_64dp"
+        />
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_toRightOf="@+id/image_view"
+            android:text="usename"
+            android:textColor="#ff000000"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <EditText
+         android:id="@+id/Edittext1"
+         android:layout_toRightOf="@+id/image_view"
+         android:layout_below="@+id/text1"
+         android:layout_width="match_parent"
+         android:layout_height="60dp"
+         android:background="#f2f2f2"
+         android:hint="个性签名"
+         android:textSize="20sp"
+         />
+
+    </RelativeLayout>
 
 
     <Button
         android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="5dp"
+        android:textSize="24sp"
+        android:textStyle="bold"
         android:text="修改密码" />
 
         <Button
             android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="5dp"
+            android:textSize="24sp"
+            android:textStyle="bold"
             android:text="修改资料"
             />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="5dp"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#fdfcfc"
+            android:background="#ab1b1b"
+            android:text="注销"
+        />
 
 
 </LinearLayout>

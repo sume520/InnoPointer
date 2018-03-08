@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.sun.innotext.FragmentSetting"
+    tools:context="com.example.sun.innotext.fragments.FragmentSetting"
     android:orientation="vertical">
 
     <View
@@ -10,10 +10,13 @@
         android:layout_height="10dp"/>
 
     <RelativeLayout
+        android:id="@+id/user_layout"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:orientation="horizontal"
-        android:background="@color/colorWhite">
+        android:background="@color/colorWhite"
+        android:clickable="true"
+        >
         <ImageView
             android:id="@+id/user_image"
             android:layout_width="70dp"
@@ -52,14 +55,79 @@
             android:layout_centerVertical="true"/>
     </RelativeLayout>
 
-    <View
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="10dp"/>
+        android:layout_height="wrap_content"
+        android:padding="@dimen/activity_vertical_margin"
+        android:orientation="vertical">
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/listview"
-        android:focusable="true"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:orientation="horizontal"
+            android:background="@color/colorWhite">
+            <ImageButton
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/ic_fingerprint_black_24dp"
+                android:background="@color/colorTransparent"/>
+
+            <Button
+                android:id="@+id/fingerprint"
+                android:text="Fingerprint"
+                android:gravity="left|center"
+                android:textSize="25dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:background="@drawable/button_press"
+                android:paddingLeft="@dimen/activity_horizontal_margin"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:background="@color/colorWhite">
+            <ImageButton
+                android:layout_width="64dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorTransparent"
+                android:src="@drawable/ic_event_note_black_24dp"/>
+
+            <Button
+                android:id="@+id/log"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:background="@drawable/button_press"
+                android:text="Log"
+                android:textSize="25dp"
+                android:gravity="left|center"
+                android:paddingLeft="@dimen/activity_horizontal_margin"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="30dp"/>
+
+        <Button
+            android:id="@+id/login_logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorGreen"
+            android:text="Login"
+            android:layout_gravity="center"
+            android:textSize="30dp"
+            style="?android:textAppearanceSmall"
+            android:textColor="@color/colorWhite"/>
+
+    </LinearLayout>
+
+
+
 
 </LinearLayout>
