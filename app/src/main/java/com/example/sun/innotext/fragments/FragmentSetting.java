@@ -1,4 +1,4 @@
-package com.example.sun.innotext;
+package com.example.sun.innotext.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,12 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.example.sun.innotext.LoginActivity;
+import com.example.sun.innotext.PersonActivity;
+import com.example.sun.innotext.R;
+import com.example.sun.innotext.SettingAdapter;
+import com.example.sun.innotext.SettingItem;
 
 import java.util.ArrayList;
 import java.util.List;

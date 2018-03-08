@@ -1,4 +1,4 @@
-package com.example.sun.innotext;
+package com.example.sun.innotext.socketmanger;
 
 import android.content.Context;
 import android.util.Log;

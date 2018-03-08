@@ -1,4 +1,4 @@
-package com.example.sun.innotext;
+package com.example.sun.innotext.fragments;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -9,6 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.example.sun.innotext.MainActivity;
+import com.example.sun.innotext.R;
+import com.example.sun.innotext.socketmanger.SocketManager;
 
 import java.net.Socket;
 
