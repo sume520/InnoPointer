@@ -7,24 +7,34 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 
 import com.baidu.mapapi.SDKInitializer;
+import com.example.sun.innotext.fragments.FragmentMap;
+import com.example.sun.innotext.dbmanger.DBManager;
 import com.example.sun.innotext.fragments.FragmentHome;
 import com.example.sun.innotext.fragments.FragmentSetting;
 import com.example.sun.innotext.socketmanger.SocketManager;
-import com.example.sun.innotext.FragmentMap;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 
 public class MainActivity extends AppCompatActivity {
 
+    //碎片
     private FragmentHome fragmentHome;
     private FragmentMap fragmentMap;
     private FragmentSetting fragmentSetting;
     private FragmentManager fragmentManager;
     private Fragment[] fragments;
     private int lastShowFragment=0;
+
+    //套接字
     private SocketManager socketManager;
+
+    private static final String TAG = "MainActivity";
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -73,7 +83,10 @@ public class MainActivity extends AppCompatActivity {
         //连接服务器
         socketManager=SocketManager.createInstance();
         socketManager.connect();
-        socketManager.getData();
+        //socketManager.getData();
+
+        //测试数据库
+        dbTest();
     }
 
     /**
@@ -118,5 +131,24 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         socketManager.closeSocket();
         super.onDestroy();
+    }
+
+    private void dbTest(){
+        Log.d(TAG, "dbTest: 正在测试数据库");
+        DBManager dbManager=DBManager.createInstance();
+        dbManager.connectDB();
+        ResultSet rs;
+        rs=dbManager.executeQuery("select * from student");
+        try {
+            while (rs.next()){
+                Log.d(TAG, "onCreate: id "+rs.getInt
+                        (1)+" username "+
+                        rs.getString(2)+
+                        " password "+rs.getString(3));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        Log.d(TAG, "dbTest: 测试数据库完成");
     }
 }
