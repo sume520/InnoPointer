@@ -126,7 +126,6 @@ public class MainActivity extends AppCompatActivity {
     public SocketManager getSocketManager(){
         return socketManager;
     }
-
     @Override
     protected void onDestroy() {
         socketManager.closeSocket();
