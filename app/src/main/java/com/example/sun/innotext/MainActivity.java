@@ -10,6 +10,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.baidu.mapapi.SDKInitializer;
+import com.example.sun.innotext.fragments.FragmentHome;
+import com.example.sun.innotext.fragments.FragmentSetting;
+import com.example.sun.innotext.socketmanger.SocketManager;
+import com.example.sun.innotext.FragmentMap;
 
 
 public class MainActivity extends AppCompatActivity {
