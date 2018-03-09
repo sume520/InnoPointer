@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/InnoText3.iml" filepath="$PROJECT_DIR$/InnoText3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/InnoPointer.iml" filepath="$PROJECT_DIR$/InnoPointer.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

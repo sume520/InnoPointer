@@ -57,18 +57,12 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-
-    }
-
-    private void init(){
-        dbManager=DBManager.createInstance();
         bt_login=findViewById(R.id.bt_login);
+
     }
 
-    private void checkEmpty(){
-        //TO DO
-    }
+
+
 
 }
 
