@@ -30,10 +30,10 @@ public class Login {
 
     private DBManager dbManager;
     private String username;
-    private String password;
     private String getPassword;
+    private char[] password=new char[18];
 
-    public Login(String username,String password){
+    public Login(String username,char[] password){
         init();
         this.username=username;
         this.password=password;
@@ -78,7 +78,7 @@ public class Login {
         try {
             while(rs.next()){
                 getPassword=rs.getString(3);
-                    return true;
+                return true;
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -88,7 +88,7 @@ public class Login {
     }
 
     private boolean isPasswordTrue(){
-        if(password!=getPassword)
+        if(password.equals(getPassword))
             return false;
         else return true;
     }

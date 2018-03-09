@@ -7,26 +7,17 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.example.sun.innotext.LoginActivity;
-import com.example.sun.innotext.PersonActivity;
+import com.example.sun.innotext.userdata.PersonActivity;
 import com.example.sun.innotext.R;
-import com.example.sun.innotext.SettingAdapter;
-import com.example.sun.innotext.SettingItem;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static android.content.ContentValues.TAG;
 
 public class FragmentSetting extends Fragment implements View.OnClickListener{
 
-    private List<SettingItem> settingItemList=new ArrayList<SettingItem>();
     private RelativeLayout relativeLayout;
     private Button bt_login_logout;
     private Button bt_fingerprint;
@@ -39,9 +30,6 @@ public class FragmentSetting extends Fragment implements View.OnClickListener{
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_setting, container, false);
-        //initSettings();
-        SettingAdapter adapter=new SettingAdapter
-                (getActivity(),settingItemList);
         //ListView listView=view.findViewById(R.id.listview);
         //注册设置列表点技监控
         //listView.setOnItemClickListener(this);
@@ -51,14 +39,6 @@ public class FragmentSetting extends Fragment implements View.OnClickListener{
         return view;
     }
 
-    private void initSettings(){
-        SettingItem log=new SettingItem("log",R.drawable.ic_event_note_black_24dp);
-        settingItemList.add(log);
-        SettingItem fingerPrint=new SettingItem("fingerprint",R.drawable.ic_fingerprint_black_24dp);
-        settingItemList.add(fingerPrint);
-        SettingItem signOut=new SettingItem("logout",R.drawable.ic_login_out_black_24dp);
-        settingItemList.add(signOut);
-    }
 
     private void setButtonListener(View view){
         relativeLayout=view.findViewById(R.id.user_layout);
@@ -70,25 +50,6 @@ public class FragmentSetting extends Fragment implements View.OnClickListener{
         bt_log=view.findViewById(R.id.log);
         bt_log.setOnClickListener(this);
     }
-
-    /*@Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        SettingItem item=settingItemList.get(position);
-
-        switch (item.getSettingName()){
-            case "log":
-                Toast.makeText(getActivity(),item.getSettingName(),Toast.LENGTH_SHORT).show();
-                break;
-            case "fingerprint":
-                Toast.makeText(getActivity(),item.getSettingName(),Toast.LENGTH_SHORT).show();
-                break;
-            case "logout":
-                Toast.makeText(getActivity(),item.getSettingName(),Toast.LENGTH_SHORT).show();
-                Intent intent=new Intent(getActivity(),LoginActivity.class);
-                startActivity(intent);
-                break;
-        }
-    }*/
 
     @Override
     public void onClick(View v) {
