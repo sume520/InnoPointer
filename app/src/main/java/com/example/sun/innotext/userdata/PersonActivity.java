@@ -26,11 +26,12 @@ public class PersonActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View view) {
-        Intent intent=null;
+        Intent intent;
         switch (view.getId()){
             case R.id.bt_modify_information:
-                intent=new Intent(PersonActivity.this,User_Infor_Activity.class);
+                intent=new Intent(PersonActivity.this,UserDataActivity.class);
                 startActivity(intent);
+                break;
         }
     }
 
