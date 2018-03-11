@@ -32,11 +32,15 @@ public class FragmentHome extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_home, container, false);
-        initButton(view);
+        init(view);
         return view;
     }
 
     //初始化并注册按钮
+    private void init(View view){
+        initButton(view);
+    }
+
     private void initButton(View view){
         rmSwitch=view.findViewById(R.id.remote_switch);
         rmSwitch.setOnClickListener(this);

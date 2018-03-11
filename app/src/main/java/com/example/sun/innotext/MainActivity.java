@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.MenuItem;
 
 import com.baidu.mapapi.SDKInitializer;
+import com.example.sun.innotext.fragments.FragmentClock;
 import com.example.sun.innotext.fragments.FragmentMap;
 import com.example.sun.innotext.dbmanger.DBManager;
 import com.example.sun.innotext.fragments.FragmentHome;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private FragmentMap fragmentMap;
     private FragmentSetting fragmentSetting;
     private FragmentManager fragmentManager;
+    private FragmentClock fragmentClock;
     private Fragment[] fragments;
     private int lastShowFragment=0;
 
@@ -43,21 +45,21 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    setTitle("Home");
+                    setTitle("指梭");
                     if(lastShowFragment!=0){
                         switchFrament(lastShowFragment,0);
                         lastShowFragment=0;
                     }
                     return true;
                 case R.id.navigation_map:
-                    setTitle("Map");
+                    setTitle("地图");
                     if(lastShowFragment!=1){
                         switchFrament(lastShowFragment,1);
                         lastShowFragment=1;
                     }
                     return true;
                 case R.id.navigation_setting:
-                    setTitle("Setting");
+                    setTitle("设置");
                     if(lastShowFragment!=2){
                         switchFrament(lastShowFragment,2);
                         lastShowFragment=2;
@@ -110,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
         fragmentHome=new FragmentHome();
         fragmentMap=new FragmentMap();
         fragmentSetting=new FragmentSetting();
+        fragmentClock=new FragmentClock();
 
         fragments = new Fragment[]{fragmentHome,fragmentMap,fragmentSetting};
         //设置默认显示碎片
@@ -118,6 +121,12 @@ public class MainActivity extends AppCompatActivity {
                 .beginTransaction()
                 .add(R.id.fragment,fragmentHome)
                 .show(fragmentHome)
+                .commit();
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.fragment_clock,fragmentClock)
+                .show(fragmentClock)
                 .commit();
 
     }

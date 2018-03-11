@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/InnoPointer.iml" filepath="$PROJECT_DIR$/InnoPointer.iml" />
+      <module fileurl="file://D:\Android\InnoText3\InnoPointer.iml" filepath="D:\Android\InnoText3\InnoPointer.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

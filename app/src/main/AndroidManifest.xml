@@ -54,7 +54,7 @@
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName="MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.sun.innotext.MainActivity" />
@@ -62,9 +62,9 @@
         <activity
             android:name=".userdata.PersonActivity"
             android:label="个人中心"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName="com.example.sun.innotext.MainActivity"></activity>
         <activity android:name=".userdata.UserDataActivity"
-            android:parentActivityName=".userdata.PersonActivity"></activity>
+            android:parentActivityName="com.example.sun.innotext.userdata.PersonActivity"></activity>
     </application>
 
 </manifest>
