@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
-import com.example.sun.innotext.LoginActivity;
+import com.example.sun.innotext.login.LoginActivity;
 import com.example.sun.innotext.userdata.PersonActivity;
 import com.example.sun.innotext.R;
 

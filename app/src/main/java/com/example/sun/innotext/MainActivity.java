@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.MenuItem;
 
 import com.baidu.mapapi.SDKInitializer;
+import com.example.sun.innotext.DrawImage.BatteryView;
 import com.example.sun.innotext.fragments.FragmentClock;
 import com.example.sun.innotext.fragments.FragmentMap;
 import com.example.sun.innotext.dbmanger.DBManager;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private FragmentClock fragmentClock;
     private Fragment[] fragments;
     private int lastShowFragment=0;
+    private BatteryView batteryView;
 
     //套接字
     private SocketManager socketManager;
@@ -113,21 +115,17 @@ public class MainActivity extends AppCompatActivity {
         fragmentMap=new FragmentMap();
         fragmentSetting=new FragmentSetting();
         fragmentClock=new FragmentClock();
+        batteryView=new BatteryView();
 
         fragments = new Fragment[]{fragmentHome,fragmentMap,fragmentSetting};
         //设置默认显示碎片
         lastShowFragment = 0;
-        getSupportFragmentManager()
-                .beginTransaction()
-                .add(R.id.fragment,fragmentHome)
-                .show(fragmentHome)
-                .commit();
 
-        getSupportFragmentManager()
-                .beginTransaction()
-                .add(R.id.fragment_clock,fragmentClock)
-                .show(fragmentClock)
-                .commit();
+        FragmentTransaction fragmentManager=getSupportFragmentManager().beginTransaction();
+        fragmentManager.add(R.id.fragment,fragmentHome);
+        fragmentManager.add(R.id.fragment_clock,fragmentClock);
+        fragmentManager.add(R.id.fragment_battery, batteryView);
+        fragmentManager.commit();
 
     }
 

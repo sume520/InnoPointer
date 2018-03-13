@@ -14,12 +14,11 @@
         >
 
         <ImageView
-        android:id="@+id/image_view"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/ic_person_black_64dp"
-            android:scaleType="centerCrop"
-        />
+            android:id="@+id/image_view"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_person_black_64dp"
+            android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/tv_username"
@@ -82,7 +81,7 @@
             android:textSize="24sp"
             android:textStyle="bold"
             android:textColor="#fdfcfc"
-            android:background="#ab1b1b"
+            android:background="#e62525"
             android:text="注销"
             />
 

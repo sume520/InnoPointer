@@ -11,8 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.sun.innotext.R;
-
 
 public class FragmentClock extends Fragment {
 
@@ -20,11 +18,11 @@ public class FragmentClock extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        ClockView clockView=new ClockView(getActivity());
+        ClockView clockView=new ClockView(getContext());
         return clockView;
     }
 
-    class ClockView extends View{
+    public class ClockView extends View{
 
         public ClockView(Context context) {
             super(context);
@@ -53,10 +51,11 @@ public class FragmentClock extends Fragment {
             //绘制刻度
             Paint paintDegree = new Paint();
             paintDegree.setStrokeWidth(3);
+            paintDegree.setDither(true);
 
-
+            //画KM/S
             Paint paintText=new Paint();
-            paintText.setStyle(Paint.Style.STROKE);
+            paintText.setStyle(Paint.Style.FILL);
             paintText.setAntiAlias(true);
             paintText.setStrokeWidth(10);
             paintText.setTextSize(100);
@@ -75,7 +74,7 @@ public class FragmentClock extends Fragment {
                     if (i == 0){
                         degree = "0";
                     }
-                    canvas.drawText(degree,mWidth/2-paintDegree.measureText(degree)/2,mHeight-mWidth/2+150,paintDegree);
+                    canvas.drawText(degree,mWidth/2-paintDegree.measureText(degree)/2,mHeight-mWidth/2+140,paintDegree);
                 }else if (i % 10 == 0){//整点
                     paintDegree.setStrokeWidth(9);
                     paintDegree.setTextSize(60);
@@ -102,6 +101,7 @@ public class FragmentClock extends Fragment {
             Paint paint = new Paint();
             paint.setStrokeWidth(10);
             paint.setColor(Color.RED);
+            paint.setDither(true);
 
 
             int degress=-80;
@@ -109,11 +109,12 @@ public class FragmentClock extends Fragment {
             //将画布的起点坐标移动到圆心位置
             canvas.translate(mWidth/2,mHeight);
             canvas.drawCircle(0,0,15,paintPoint);
-
             canvas.drawLine(0,0,0,degress+400,paint);
 
             //合并图层
             canvas.restore();
+
+
         }
 
     }

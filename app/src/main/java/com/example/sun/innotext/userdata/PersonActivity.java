@@ -32,7 +32,13 @@ public class PersonActivity extends AppCompatActivity implements View.OnClickLis
                 intent=new Intent(PersonActivity.this,UserDataActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.username:
+                intent=new Intent(PersonActivity.this,UserDataActivity.class);
+                startActivity(intent);
+                break;
         }
     }
+
+
 
 }

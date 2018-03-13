@@ -1,4 +1,4 @@
-package com.example.sun.innotext;
+package com.example.sun.innotext.register;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -29,40 +29,25 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.sun.innotext.dbmanger.DBManager;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import com.example.sun.innotext.R;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
 /**
  * A login screen that offers login via email/password.
  */
-public class LoginActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
 
-
-    private AutoCompleteTextView account;
-    private EditText mPasswordView;
-    private View mProgressView;
-    private View mLoginFormView;
-    private Button bt_login;
-
-    private DBManager dbManager;
-
-    public LoginActivity() {
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-        bt_login=findViewById(R.id.bt_login);
+        setContentView(R.layout.activity_register);
 
     }
-
-
-
 
 }
 

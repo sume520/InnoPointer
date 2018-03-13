@@ -14,6 +14,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
+import java.util.concurrent.ThreadPoolExecutor;
 
 /**
  * Created by sun on 2018/2/26.
@@ -27,6 +28,7 @@ public class SocketManager {
     private Context context;
     private ExecutorService executorService;
     private Future<Object> future;
+    private ThreadPoolExecutor threadPoolExecutor;
 
 
     private static SocketManager socketManager;
@@ -47,6 +49,7 @@ public class SocketManager {
 
 
     public void connect(){
+        //threadPoolExecutor=ThreadPoolExecutor.
         executorService= Executors.newCachedThreadPool();
         FutureTask futureTask=new FutureTask(new SocketConnect());
         //executorService.submit(futureTask);
