@@ -17,8 +17,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.sun.innotext.fragments.FragmentClock;
-
 /**
  * Created by sun on 2018/3/10.
  */

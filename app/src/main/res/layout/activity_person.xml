@@ -2,92 +2,136 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-
+    android:layout_height="match_parent"
+    android:background="@color/colorGrey">
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="5dp"
-        >
-
-        <ImageView
-            android:id="@+id/image_view"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/ic_person_black_64dp"
-            android:scaleType="centerCrop" />
-
-        <TextView
-            android:id="@+id/tv_username"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_toRightOf="@+id/image_view"
-            android:text="username"
-            android:textColor="#ff000000"
-            android:textSize="30sp"
-            android:textStyle="bold" />
-
-        <EditText
-         android:id="@+id/Edittext1"
-         android:layout_toRightOf="@+id/image_view"
-         android:layout_below="@+id/tv_username"
-         android:layout_width="match_parent"
-         android:layout_height="60dp"
-         android:background="#f2f2f2"
-         android:hint="个性签名"
-         android:textSize="20sp"
-         android:enabled="false"/>
-
-    </RelativeLayout>
-
-    <LinearLayout
+        android:background="@color/colorWhite"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginLeft=
-            "@dimen/activity_horizontal_margin"
-        android:layout_marginRight=
+        android:layout_marginTop=
+            "@dimen/activity_vertical_margin"
+        android:layout_marginHorizontal=
             "@dimen/activity_horizontal_margin">
-        <Button
-            android:id="@+id/button1"
+        <TextView
+            android:id="@+id/tv_username"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="5dp"
+            android:text="用户名:"/>
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:gravity="center"
+            android:layout_toRightOf="@+id/tv_username"
+            android:text="用户XX"/>
+
+        <View
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="5dp"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:text="修改密码" />
+            android:layout_height="1dp"
+            android:layout_below="@+id/username"
+            android:layout_marginHorizontal
+                ="@dimen/activity_horizontal_margin"
+            android:background="@color/colorGrey"/>
 
-        <Button
-            android:id="@+id/bt_modify_information"
+        <LinearLayout
+            android:id="@+id/image_bar"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="5dp"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:text="修改资料"
-            />
+            android:layout_height="48dp"
+            android:layout_below="@+id/username">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="头像"
+                android:textSize="18dp"
+                android:textColor="#000"
+                android:paddingLeft="5dp"/>
 
-        <Button
-            android:id="@+id/button3"
+            <ImageView
+                android:id="@+id/user_image"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_person_black_64dp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_chevron_right_black_24dp"/>
+        </LinearLayout>
+
+        <View
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="5dp"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:textColor="#fdfcfc"
-            android:background="#e62525"
-            android:text="注销"
-            />
+            android:layout_height="1dp"
+            android:layout_below="@id/image_bar"
+            android:layout_marginHorizontal
+                ="@dimen/activity_horizontal_margin"
+            android:background="@color/colorGrey" />
 
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/nickname_bar"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_below="@+id/image_bar">
 
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="昵称"
+                android:textSize="18dp"
+                android:layout_gravity="center"
+                android:textColor="#000"
+                android:paddingLeft="5dp"/>
 
+            <TextView
+                android:id="@+id/nickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="用户昵称"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_chevron_right_black_24dp"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/nickname_bar"
+            android:layout_marginHorizontal
+                ="@dimen/activity_horizontal_margin"
+            android:background="@color/colorGrey" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_below="@+id/nickname_bar">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="更多"
+                android:textSize="18dp"
+                android:textColor="#000"
+                android:paddingLeft="5dp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_chevron_right_black_24dp"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
 
 
 </LinearLayout>

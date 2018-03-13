@@ -1,4 +1,4 @@
-package com.example.sun.innotext.fragments;
+package com.example.sun.innotext.DrawImage;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -41,17 +41,19 @@ public class FragmentClock extends Fragment {
 
             //绘画半圆
             Paint paintSemicircle=new Paint();
-            paintSemicircle.setColor(Color.YELLOW);
+            paintSemicircle.setARGB(255,65 ,105 ,225);
             paintSemicircle.setStyle(Paint.Style.STROKE);
             paintSemicircle.setAntiAlias(true);
-            paintSemicircle.setStrokeWidth(5);
-            RectF rectF=new RectF(0,mHeight-mWidth/2,mWidth,mHeight+mWidth/2);
+            paintSemicircle.setDither(true);
+            paintSemicircle.setStrokeWidth(15);
+            RectF rectF=new RectF(8,mHeight-mWidth/2+8,mWidth-8,mHeight+mWidth/2);
             canvas.drawArc(rectF,-180,180,false,paintSemicircle);
 
             //绘制刻度
             Paint paintDegree = new Paint();
             paintDegree.setStrokeWidth(3);
             paintDegree.setDither(true);
+            paintDegree.setAntiAlias(true);
 
             //画KM/S
             Paint paintText=new Paint();
@@ -66,10 +68,10 @@ public class FragmentClock extends Fragment {
 
             for (int i = 0 ;i<=120 ;i++){
                 //大点,12点 3点 6点 9点
-                if (i == 0 || i == 30 || i==60){
+                if (i == 0 || i == 30 || i==60 || i==120){
                     paintDegree.setStrokeWidth(12);
                     paintDegree.setTextSize(60);
-                    canvas.drawLine(mWidth/2,mHeight-mWidth/2,mWidth/2,mHeight-mWidth/2+80,paintDegree);
+                    canvas.drawLine(mWidth/2,mHeight-mWidth/2+5,mWidth/2,mHeight-mWidth/2+80,paintDegree);
                     String degree = String.valueOf(i);
                     if (i == 0){
                         degree = "0";
@@ -80,17 +82,17 @@ public class FragmentClock extends Fragment {
                     paintDegree.setTextSize(60);
                     String degree = String.valueOf(i);
                     canvas.drawText(degree,mWidth/2-paintDegree.measureText(degree)/2,mHeight-mWidth/2+140,paintDegree);
-                    canvas.drawLine(mWidth/2,mHeight-mWidth/2,mWidth/2,mHeight-mWidth/2+60,paintDegree);
+                    canvas.drawLine(mWidth/2,mHeight-mWidth/2+5,mWidth/2,mHeight-mWidth/2+60,paintDegree);
                 }else if (i % 5 == 0){
                     paintDegree.setStrokeWidth(6);
                     paintDegree.setTextSize(20);
-                    canvas.drawLine(mWidth/2,mHeight-mWidth/2,mWidth/2,mHeight-mWidth/2+40,paintDegree);
+                    canvas.drawLine(mWidth/2,mHeight-mWidth/2+5,mWidth/2,mHeight-mWidth/2+40,paintDegree);
                 }
-                else{
+                /*else{
                     paintDegree.setStrokeWidth(3);
                     paintDegree.setTextSize(20);
                     canvas.drawLine(mWidth/2,mHeight-mWidth/2,mWidth/2,mHeight-mWidth/2+20,paintDegree);
-                }
+                }*/
                 //每次绘制完成后将画布旋转3度
                 canvas.rotate(1.5f, mWidth / 2, mHeight );
             }
@@ -102,14 +104,16 @@ public class FragmentClock extends Fragment {
             paint.setStrokeWidth(10);
             paint.setColor(Color.RED);
             paint.setDither(true);
+            paint.setAntiAlias(true);
 
 
-            int degress=-80;
+            int length=-300;
 
             //将画布的起点坐标移动到圆心位置
             canvas.translate(mWidth/2,mHeight);
+            canvas.rotate(-180);
             canvas.drawCircle(0,0,15,paintPoint);
-            canvas.drawLine(0,0,0,degress+400,paint);
+            canvas.drawLine(0,0,0,length,paint);
 
             //合并图层
             canvas.restore();

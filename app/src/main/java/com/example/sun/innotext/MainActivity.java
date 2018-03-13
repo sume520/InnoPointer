@@ -12,7 +12,7 @@ import android.view.MenuItem;
 
 import com.baidu.mapapi.SDKInitializer;
 import com.example.sun.innotext.DrawImage.BatteryView;
-import com.example.sun.innotext.fragments.FragmentClock;
+import com.example.sun.innotext.DrawImage.FragmentClock;
 import com.example.sun.innotext.fragments.FragmentMap;
 import com.example.sun.innotext.dbmanger.DBManager;
 import com.example.sun.innotext.fragments.FragmentHome;

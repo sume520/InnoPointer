@@ -20,22 +20,15 @@ public class PersonActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void Init(){
-        bt_modify_infor=findViewById(R.id.bt_modify_information);
-        bt_modify_infor.setOnClickListener(this);
+       // bt_modify_infor=findViewById(R.id.bt_modify_information);
+       // bt_modify_infor.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         Intent intent;
         switch (view.getId()){
-            case R.id.bt_modify_information:
-                intent=new Intent(PersonActivity.this,UserDataActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.username:
-                intent=new Intent(PersonActivity.this,UserDataActivity.class);
-                startActivity(intent);
-                break;
+
         }
     }
 
