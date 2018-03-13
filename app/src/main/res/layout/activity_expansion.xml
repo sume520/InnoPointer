@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.sun.innotext.expansion.ExpansionActivity"
+    android:background="@color/colorGrey">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_alignParentBottom="true"
+        app:cardBackgroundColor="#3e8ae1"
+        android:layout_marginHorizontal="@dimen/activity_horizontal_margin">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical|center">
+
+
+            <ImageView
+                android:scaleType="centerInside"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_bluetooth_black_48dp"
+                android:background="@color/colorWhite"
+                android:layout_marginHorizontal="@dimen/activity_horizontal_margin"/>
+
+            <ImageView
+                android:scaleType="centerInside"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_surround_sound_black_48dp"
+                android:background="@color/colorWhite"/>
+
+            <ImageView
+                android:scaleType="centerInside"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_gps_fixed_black_48dp"
+                android:background="@color/colorWhite"
+                android:layout_marginHorizontal="@dimen/activity_horizontal_margin"/>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_alignParentRight="true"
+        android:background="#3e8ae1">
+        <RadioButton
+            android:id="@+id/batterycart"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+
+            android:text="电动车" />
+
+        <RadioButton
+            android:id="@+id/bike"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+
+            android:text="山地车"/>
+
+        <RadioButton
+            android:id="@+id/trunk"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+
+            android:text="行李箱"/>
+
+
+
+    </RadioGroup>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_fingerprint_black_48dp"
+        android:layout_centerInParent="true" />
+
+</RelativeLayout>

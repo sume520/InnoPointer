@@ -67,13 +67,14 @@
             android:name=".userdata.UserDataActivity"
             android:parentActivityName=".userdata.PersonActivity" />
         <activity
-            android:name="com.example.sun.innotext.register.RegisterActivity"
+            android:name=".register.RegisterActivity"
             android:label="@string/title_activity_register"
             android:parentActivityName=".login.LoginActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.sun.innotext.MainActivity" />
         </activity>
+        <activity android:name=".expansion.ExpansionActivity"></activity>
     </application>
 
 </manifest>
