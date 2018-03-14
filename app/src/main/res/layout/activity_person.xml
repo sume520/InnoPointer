@@ -16,17 +16,17 @@
         <TextView
             android:id="@+id/tv_username"
             android:layout_width="wrap_content"
-            android:layout_height="24dp"
+            android:layout_height="36dp"
             android:gravity="center_vertical"
             android:paddingLeft="5dp"
-            android:text="用户名:"/>
+            android:text="账户:"/>
         <TextView
             android:id="@+id/username"
             android:layout_width="wrap_content"
-            android:layout_height="24dp"
+            android:layout_height="36dp"
             android:gravity="center"
             android:layout_toRightOf="@+id/tv_username"
-            android:text="用户XX"/>
+            android:text="xiaoai@qq.com"/>
 
         <View
             android:layout_width="match_parent"
@@ -39,7 +39,7 @@
         <LinearLayout
             android:id="@+id/image_bar"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="60dp"
             android:layout_below="@+id/username">
             <TextView
                 android:layout_width="0dp"
@@ -53,9 +53,10 @@
 
             <ImageView
                 android:id="@+id/user_image"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:src="@drawable/ic_person_black_64dp"/>
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:src="@drawable/image_002"
+                android:layout_gravity="center"/>
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -74,7 +75,7 @@
         <LinearLayout
             android:id="@+id/nickname_bar"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="60dp"
             android:layout_below="@+id/image_bar">
 
             <TextView
@@ -92,7 +93,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="用户昵称"/>
+                android:text="小爱"/>
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -111,7 +112,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="60dp"
             android:layout_below="@+id/nickname_bar">
 
             <TextView
@@ -132,6 +133,53 @@
         </LinearLayout>
 
     </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:background="@color/colorWhite">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="登录密码"
+                android:textSize="18dp"
+                android:textColor="#000"
+                android:paddingLeft="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="修改"
+                android:gravity="center"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_chevron_right_black_24dp"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <Button
+        android:layout_marginTop="48dp"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginHorizontal="@dimen/activity_vertical_margin"
+        android:background="@color/colorWhite"
+        android:textSize="25dp"
+        android:text="退出登录"
+        android:textColor="#ff2828"/>
 
 
 </LinearLayout>

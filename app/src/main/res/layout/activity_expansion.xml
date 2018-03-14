@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:layout_alignParentBottom="true"
-        app:cardBackgroundColor="#FF454DDC"
+        app:cardBackgroundColor="#0bdc35"
         android:layout_marginHorizontal="@dimen/activity_horizontal_margin">
 
         <LinearLayout
@@ -55,11 +55,12 @@
         android:gravity="center"
         android:orientation="horizontal"
         android:layout_alignParentRight="true"
-        android:background="#FF454DDC">
+        android:background="#0bdc35">
         <RadioButton
             android:id="@+id/batterycart"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
+            android:textColor="@color/colorWhite"
 
             android:text="电动车" />
 
@@ -67,14 +68,14 @@
             android:id="@+id/bike"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-
+            android:textColor="@color/colorWhite"
             android:text="山地车"/>
 
         <RadioButton
             android:id="@+id/trunk"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-
+            android:textColor="@color/colorWhite"
             android:text="行李箱"/>
 
 

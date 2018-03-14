@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.example.sun.innotext.expansion.ExpansionActivity;
 import com.example.sun.innotext.login.LoginActivity;
@@ -22,10 +23,9 @@ public class FragmentSetting extends Fragment implements View.OnClickListener{
 
     private RelativeLayout relativeLayout;
     private Button bt_login_logout;
-    private Button bt_fingerprint;
-    private Button bt_log;
-    private LinearLayout ll_expand;
-    private Button btn_expension;
+    private LinearLayout ll_fingerprint;
+    private LinearLayout ll_expansion;
+    private LinearLayout ll_log;
 
     public static boolean isLogin=false;
 
@@ -45,14 +45,12 @@ public class FragmentSetting extends Fragment implements View.OnClickListener{
         relativeLayout.setOnClickListener(this);
         bt_login_logout=view.findViewById(R.id.login_logout);
         bt_login_logout.setOnClickListener(this);
-        bt_fingerprint=view.findViewById(R.id.fingerprint);
-        bt_fingerprint.setOnClickListener(this);
-        bt_log=view.findViewById(R.id.log);
-        bt_log.setOnClickListener(this);
-        ll_expand=view.findViewById(R.id.ll_expansion);
-        ll_expand.setOnClickListener(this);
-        btn_expension=view.findViewById(R.id.btn_expansion);
-        btn_expension.setOnClickListener(this);
+        ll_fingerprint=view.findViewById(R.id.ll_fingerprint);
+        ll_fingerprint.setOnClickListener(this);
+        ll_expansion=view.findViewById(R.id.ll_expansion);
+        ll_expansion.setOnClickListener(this);
+        ll_log=view.findViewById(R.id.ll_log);
+        ll_log.setOnClickListener(this);
     }
 
     @Override
@@ -68,13 +66,16 @@ public class FragmentSetting extends Fragment implements View.OnClickListener{
                 intent=new Intent(getContext(),LoginActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.fingerprint:
-                Log.d(TAG, "onClick: you click fingerprint button");
+            case R.id.ll_fingerprint:
+                Log.d(TAG, "onClick: you click fingerprint");
                 break;
-            case R.id.btn_expansion:
-                Log.d(TAG, "onClick: you click expansin button");
+            case R.id.ll_expansion:
+                Log.d(TAG, "onClick: you click expansin");
                 intent=new Intent(getContext(), ExpansionActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.ll_log:
+                Log.d(TAG, "onClick: you click log");
                 break;
             default:
                 Log.d(TAG, "onClick: you click nothing");
