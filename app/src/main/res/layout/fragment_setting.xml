@@ -56,6 +56,7 @@
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/ll_expansion"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:orientation="horizontal"
@@ -68,8 +69,8 @@
 
             <Button
                 android:id="@+id/fingerprint"
-                android:text="指纹"
                 android:gravity="left|center"
+                android:text="指纹"
                 android:textSize="25dp"
                 android:layout_width="0dp"
                 android:layout_weight="1"
@@ -85,15 +86,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="64dp"
-            android:background="@color/colorWhite">
+            android:background="@color/colorWhite"
+            android:clickable="true">
             <ImageButton
                 android:layout_width="64dp"
-                android:layout_height="match_parent"
+                android:layout_height="64dp"
                 android:background="@color/colorTransparent"
                 android:src="@drawable/ic_extension_black_24dp"/>
 
             <Button
-                android:id="@+id/bt_expansion"
+                android:id="@+id/btn_expansion"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
@@ -103,6 +105,10 @@
                 android:gravity="left|center"
                 android:paddingLeft="@dimen/activity_horizontal_margin"/>
         </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
