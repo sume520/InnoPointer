@@ -68,7 +68,7 @@ public class SocketManager {
                     try {
                         Thread.sleep(2000);
                     } catch (InterruptedException e) {
-                        e.printStackTrace();
+                       // e.printStackTrace();
                     }
                 }
             }
@@ -88,7 +88,7 @@ public class SocketManager {
                         judge=true;
                         Log.d("SocketManger", "发送指令" + cmd + "成功");
                     } catch (IOException e) {
-                        e.printStackTrace();
+                        //e.printStackTrace();
                         judge=false;
                         Log.d("SocketManger", "发送指令" + cmd + "失败");
                     }
@@ -155,7 +155,7 @@ public class SocketManager {
                     Toast.makeText(context,"连接服务器成功",Toast.LENGTH_SHORT).show();
                     //return true;
                 } catch (IOException e) {
-                    e.printStackTrace();
+                   // e.printStackTrace();
                     Log.d("SocketManger", "连接服务器失败");
                     Thread.sleep(2000);
                 }

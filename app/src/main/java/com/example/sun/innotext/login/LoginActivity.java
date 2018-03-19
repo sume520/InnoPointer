@@ -29,9 +29,11 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.sun.innotext.R;
 import com.example.sun.innotext.dbmanger.DBManager;
+import com.example.sun.innotext.login.login_code.LoginCode;
 import com.example.sun.innotext.register.RegisterActivity;
 
 import java.util.ArrayList;
@@ -45,14 +47,14 @@ import static android.Manifest.permission.READ_CONTACTS;
 public class LoginActivity extends AppCompatActivity implements OnClickListener{
 
 
-    private AutoCompleteTextView account;
-    private EditText mPasswordView;
-    private View mProgressView;
-    private View mLoginFormView;
+    private AutoCompleteTextView username;
+    private EditText password;
     private Button bt_login;
 
     private DBManager dbManager;
     private Button btn_reg;
+
+    private static final String TAG = "LoginActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,8 +66,11 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
 
     private void init(){
         bt_login=findViewById(R.id.bt_login);
+        bt_login.setOnClickListener(this);
         btn_reg=findViewById(R.id.btn_register);
         btn_reg.setOnClickListener(this);
+        username=findViewById(R.id.username);
+        password=findViewById(R.id.password);
     }
 
 
@@ -76,6 +81,14 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
                 Intent intent=new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.bt_login:
+                Login login=new Login(username.getText().toString(),password.getText().toString());
+                if(login.attemptToLogin()== LoginCode.loginSucceed){
+                    Toast.makeText(LoginActivity.this,"登陆成功",Toast.LENGTH_SHORT).show();
+                    //finish();
+                }else{
+                    Toast.makeText(LoginActivity.this,"登陆失败",Toast.LENGTH_SHORT).show();
+                }
         }
     }
 }

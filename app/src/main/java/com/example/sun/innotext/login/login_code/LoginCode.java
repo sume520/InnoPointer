@@ -6,7 +6,7 @@ package com.example.sun.innotext.login.login_code;
 
 public enum LoginCode {
     loginSucceed(100),
-    uernameOverLength(101),
+    uernameError(101),
     usernameUnexistence(102),
     passwordMistake(103);
 
@@ -21,7 +21,7 @@ public enum LoginCode {
             case 100:
                 return loginSucceed;
             case 101:
-                return uernameOverLength;
+                return uernameError;
             case 102:
                 return usernameUnexistence;
             case 103:
